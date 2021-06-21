@@ -17,7 +17,7 @@ jobs:
         fields: all
         mention: here
         if_mention: failure,cancelled
-        text: "${{ steps.pr-url.outputs.url }}"
+        text: "URL : ${{ steps.pr-url.outputs.url }}"
       env:
         SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }} # required
       if: always() # Pick up events even if the job fails or is canceled.
