@@ -5,6 +5,11 @@ jobs:
     name: Slack Notification
     runs-on: ubuntu-latest
     steps:
+    - name: 
+      uses: kceb/pull-request-url-action@v1
+      id: pr-url
+      run: echo "${{ steps.pr-url.outputs.url }}"
+
     - name: Slack Notification
       uses: 8398a7/action-slack@v3
       with:
@@ -13,7 +18,7 @@ jobs:
         fields: repo,commit,message,author # default: repo,commit
         mention: here
         if_mention: failure,cancelled
-        text: 'any string'
+        text: "${{ steps.pr-url.outputs.url }}"
       env:
         SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }} # required
       if: always() # Pick up events even if the job fails or is canceled.
