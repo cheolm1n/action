@@ -8,7 +8,6 @@ jobs:
     - name: get url
       uses: kceb/pull-request-url-action@v1
       id: pr-url
-      run: echo "${{ steps.pr-url.outputs.url }}"
 
     - name: Slack Notification
       uses: 8398a7/action-slack@v3
