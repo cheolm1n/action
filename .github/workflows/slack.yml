@@ -1,4 +1,4 @@
-name: Slack Notification
+name: Notification
 on: [pull_request]
 jobs:
   slackNotification:
